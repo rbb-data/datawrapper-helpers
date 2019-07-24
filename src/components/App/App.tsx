@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
-import ApiKeyInput from 'components/ApiKeyInput/ApiKeyInput'
-import ColumnDuplicator from 'components/ColumnDuplicator/ColumnDuplicator'
+import GlobalInputs from 'components/GlobalInputs/GlobalInputs'
+import HeatmapTableGenerator from 'components/HeatmapTableGenerator/HeatmapTableGenerator'
 
 function App () {
   const [apiKey, setApiKey] = useState('')
+  const [chartId, setChartId] = useState('')
 
   return <div>
-    <ApiKeyInput apiKey={apiKey} onChange={setApiKey} />
-    <ColumnDuplicator apiKey={apiKey} />
+    <GlobalInputs
+      apiKey={apiKey}
+      chartId={chartId}
+      onChangeChartId={setChartId}
+      onChangeApiKey={setApiKey} />
+    <HeatmapTableGenerator apiKey={apiKey} chartId={chartId} />
   </div>
 }
 
